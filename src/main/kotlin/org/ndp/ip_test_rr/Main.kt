@@ -35,5 +35,7 @@ object Main {
                 )
             }
         }
+        DatabaseHandler.batchInsertIP(insertIPs)
+        DatabaseHandler.batchUpdateTaskStatus(updateTasks)
     }
 }
