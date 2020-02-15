@@ -25,6 +25,7 @@ object Main {
             // ip
             for (ip in r.result) {
                 val ipInt = OtherTools.iNetString2Number(ip.ip)
+                if (DatabaseHandler.findIP(ipInt)) continue
                 insertIPs.add(
                     BatchInsertIP(
                         ipInt,

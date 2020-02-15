@@ -26,6 +26,13 @@ object DatabaseHandler {
         )
     }
 
+    fun findIP(ipInt: Long): Boolean {
+        val id = TableIP.select(TableIP.id)
+            .where { TableIP.id eq ipInt.toInt() }
+            .map { it[TableIP.id]!! }
+        return id.isNotEmpty()
+    }
+
     fun findGeoID(ipInt: Long): Int {
         val geoID = database.useConnection { conn ->
             val sql = "select `geoname_id` from `GeoLite2-City-Blocks-IPv4` " +
